@@ -23,6 +23,37 @@ class Rectangle : Shape
     }
 }
 
+class Circle : Shape
+{
+    public double Radius { get; set; }
+
+    public override double CalculateArea()
+    {
+        return Math.PI * Radius * Radius;
+    }
+
+    public override string GetShapeName()
+    {
+        return "Circle";
+    }
+}
+
+class Triangle : Shape
+{
+    public double Base { get; set; }
+    public double Height { get; set; }
+
+    public override double CalculateArea()
+    {
+        return 0.5 * Base * Height;
+    }
+
+    public override string GetShapeName()
+    {
+        return "Triangle";
+    }
+}
+
 class Program
 {
     static void Main()
@@ -30,6 +61,8 @@ class Program
         Shape[] shapes = new Shape[]
         {
             new Rectangle { Length = 10, Width = 5 },
+            new Circle { Radius = 7 },
+            new Triangle { Base = 6, Height = 4 }
         };
 
         foreach (var shape in shapes)
